@@ -18,6 +18,8 @@ class SSP(object):
         self.age = age
         self.met = met
 
+        self._ISOCDIR = kwargs['isocdir']
+
         try:
            self.isoc = self._getiso(group=kwargs['group'],
                                     filterset=kwargs['filterset'])
@@ -63,7 +65,7 @@ class SSP(object):
 
         # Mask to exclude values outside the range covered by the model
         mask = (masses < self.max_mass)&(masses > self.min_mass)
-        masses = masses[i]
+        masses = masses[mask]
         n = len(masses)
 
         ivals = self._interpolate()
@@ -77,10 +79,14 @@ class SSP(object):
             idx = np.random.randint(int(n*fbin), size=int((1.0/magic)*n*fbin))
             cmasses = self.mf.sample(len(idx))
             for i, vname in enumerate(self.cols[2:]):
-                stars[idx, i+2] = -2.5*np.log10(flux(stars[idx, i+2]) + flux(ivals[vname](cmasses)))
+                stars[idx, i+2] = -2.5*np.log10(flux(stars[idx, i+2]) +
+                                                flux(ivals[vname](cmasses)))
 
         elif 1.0 < fbin < 0.0:
             raise ValueError("f_bin must be less than 1 and positive")
+
+        self._stars = stars
+        self._total_mass = total_mass
 
         return total_mass, stars
 
@@ -92,11 +98,12 @@ class SSP(object):
         age = self.age
         met = self.met
 
-        _ISOCDIR=os.path.join(os.path.dirname(os.path.realpath(__file__)),'data')
+        _ISOCDIR = self._ISOCDIR
 
         table_name = 'padova_'+filterset
         self.cols = col_dict[filterset].split()
 
+        print(_ISOCDIR)
         connection=sqlite3.connect(_ISOCDIR+'/isoc_'+group+'_'+filterset+'.sqlite')
         cursor=connection.cursor()
 
@@ -138,3 +145,8 @@ class SSP(object):
                                            bounds_error=False)
 
         return m
+
+    def _setisocdir(self, dir):
+
+        self._ISOCDIR = dir
+        return

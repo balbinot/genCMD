@@ -1,18 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-
 try:
     from setuptools import setup
 except ImportError:
     from distutils.core import setup
 
-
 readme = open('README.rst').read()
 history = open('HISTORY.rst').read().replace('.. :changelog:', '')
 
-requirements = [
-    # TODO: put package requirements here
+requirements = ['numpy',
+                'scipy'
 ]
 
 test_requirements = [
@@ -28,13 +26,13 @@ setup(
     author_email='eduardo.balbinot@gmail.com',
     url='https://github.com/balbinot/gencmd',
     packages=[
-        'gencmd',
+        'gencmd','gencmd/df', 'gencmd/model', 'gencmd/util'
     ],
     package_dir={'gencmd':
                  'gencmd'},
     include_package_data=True,
     install_requires=requirements,
-    license="BSD",
+    license="MIT",
     zip_safe=False,
     keywords='gencmd',
     classifiers=[
