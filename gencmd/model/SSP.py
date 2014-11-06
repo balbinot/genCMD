@@ -17,8 +17,8 @@ class SSP(object):
 
         self.age = age
         self.met = met
-
         self._ISOCDIR = kwargs['isocdir']
+        self.col_dict = col_dict
 
         try:
            self.isoc = self._getiso(group=kwargs['group'],
