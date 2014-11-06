@@ -18,6 +18,22 @@ Contents:
    authors
    history
 
+The classes
+======================================
+
+.. automodule:: gencmd
+    :members:
+    :undoc-members:
+.. autoclass:: SSP
+    :members:
+    :private-members:
+    :undoc-members:
+    :inherited-members:
+.. autoclass:: gencmd.df.Kroupa
+    :members:
+    :private-members:
+    :undoc-members: 
+
 Indices and tables
 ==================
 
