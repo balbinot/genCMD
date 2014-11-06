@@ -14,7 +14,9 @@ requirements = ['numpy',
 ]
 
 test_requirements = [
-    # TODO: put package test requirements here
+                'numpy',
+                'scipy',
+                'tox'
 ]
 
 setup(
