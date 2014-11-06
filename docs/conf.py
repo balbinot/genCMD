@@ -16,6 +16,17 @@
 import sys
 import os
 
+## for python < 3.3
+from mock import Mock as MagicMock
+
+class Mock(MagicMock):
+    @classmethod
+    def __getattr__(cls, name):
+            return Mock()
+
+MOCK_MODULES = ['numpy', 'scipy']
+sys.modules.update((mod_name, Mock()) for mod_name in MOCK_MODULES)
+
 
 # If extensions (or modules to document with autodoc) are in another
 # directory, add these directories to sys.path here. If the directory is
@@ -263,16 +274,6 @@ texinfo_documents = [
      'Miscellaneous'),
 ]
 
-## for python < 3.3
-from mock import Mock as MagicMock
-
-class Mock(MagicMock):
-    @classmethod
-    def __getattr__(cls, name):
-            return Mock()
-
-MOCK_MODULES = ['numpy', 'scipy']
-sys.modules.update((mod_name, Mock()) for mod_name in MOCK_MODULES)
 
 # Documents to append as an appendix to all manuals.
 #texinfo_appendices = []
