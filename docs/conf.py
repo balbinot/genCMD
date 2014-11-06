@@ -15,7 +15,9 @@
 
 import sys
 import os
-from unittest.mock import MagicMock
+
+## for python < 3.3
+from mock import Mock as MagicMock
 
 class Mock(MagicMock):
     @classmethod
