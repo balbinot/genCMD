@@ -5,7 +5,16 @@ from __future__ import absolute_import, print_function, division
 import numpy as np
 
 class Kroupa():
-    """An powerlaw mass function f(x) ~ x^-a"""
+    """An powerlaw mass function f(x) ~ x^-a
+
+    Args:
+        a (list): the powerlaw exponents for each piece
+        mlim (list): the mass ranges for each exponent
+
+    Returns:
+        Object
+
+    """
 
     def __init__(self, a=[1.3, 2.35, 2.30], mlim=[0.08, 0.5, 2.0, 120.0]):
 
@@ -41,6 +50,18 @@ class Kroupa():
         self._area = area # piece information
 
     def sample(self, n):
+        """Samples n times from the mass function.
+
+        >>> len(t.sample(10))
+        10
+
+        Args:
+            n (int): number of samples
+
+        Return:
+            array (numpy.ndarray): array containing the mass values sampled.
+
+        """
 
         area = self._area
         norm = self._norm
@@ -75,3 +96,7 @@ class Kroupa():
         Z = 1.0/(1.0-slope)
         mass = mass**Z
         return mass
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod(extraglobs={'t': Kroupa()})

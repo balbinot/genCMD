@@ -13,11 +13,7 @@ requirements = ['numpy',
                 'scipy'
 ]
 
-test_requirements = [
-                'numpy',
-                'scipy',
-                'tox'
-]
+test_requirements = [  ]
 
 setup(
     name='gencmd',

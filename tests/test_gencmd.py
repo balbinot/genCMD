@@ -8,21 +8,7 @@ test_gencmd
 Tests for `gencmd` module.
 """
 
-import unittest
+import doctest
 
-from gencmd import gencmd
-
-
-class TestGencmd(unittest.TestCase):
-
-    def setUp(self):
-        pass
-
-    def test_something(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-if __name__ == '__main__':
-    unittest.main()
+from gencmd.df import Kroupa
+from gencmd.model import SSP
