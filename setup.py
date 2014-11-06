@@ -11,7 +11,6 @@ history = open('HISTORY.rst').read().replace('.. :changelog:', '')
 
 requirements = ['numpy',
                 'scipy',
-                'mock'
 ]
 
 test_requirements = []
