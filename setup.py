@@ -10,10 +10,11 @@ readme = open('README.rst').read()
 history = open('HISTORY.rst').read().replace('.. :changelog:', '')
 
 requirements = ['numpy',
-                'scipy'
+                'scipy',
+                'mock'
 ]
 
-test_requirements = [  ]
+test_requirements = []
 
 setup(
     name='gencmd',
