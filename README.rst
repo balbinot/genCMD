@@ -10,7 +10,7 @@ Generates synthetic colour-magnitude diagrams (CMD)
 * Free software: MIT license
 * Documentation: https://gencmd.readthedocs.org.
 
-This is my first python package! Good bye messy scripts.
+This is my first python package! Good bye messy scripts.::
 
 >>> import gencmd
 
