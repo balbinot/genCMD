@@ -11,11 +11,11 @@ gerr = phot_sys.ecoeff['des']['g']
 rerr = phot_sys.ecoeff['des']['r']
 
 def err(m, a, b, c):
-    return a + np.exp((m-b)/c)
+    return a + np.exp((m - b)/c)
 
 isocdir = '/scratch/isocdir/'  # Change me!
 
-lAges = np.linspace(7,10.15,300)
+lAges = np.linspace(7, 10.15, 300)
 Z = np.zeros_like(lAges) + 0.015/10
 
 # Set up IMF in reasonable mass values
@@ -51,6 +51,5 @@ p.xlabel('g-r')
 p.ylabel('g')
 p.ylim(22,11)
 p.xlim(-1,1.5)
-
 p.show()
 
