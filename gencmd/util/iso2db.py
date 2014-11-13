@@ -53,7 +53,7 @@ Zlist = np.array([])
 agelist = np.loadtxt(argv[1], usecols=(1,))
 agelist = np.unique(agelist)
 
-for fname in argv[1:]: 
+for fname in argv[1:]:
     a = open(fname, 'r')
     line = a.readline()
     while '#' in line:
