@@ -23,16 +23,16 @@ The classes
 
 .. automodule:: gencmd
     :members:
-    :undoc-members:
+..    :undoc-members:
 .. autoclass:: SSP
     :members:
     :private-members:
-    :undoc-members:
     :inherited-members:
+..    :undoc-members:
 .. autoclass:: gencmd.df.Kroupa
     :members:
     :private-members:
-    :undoc-members: 
+..    :undoc-members: 
 
 Indices and tables
 ==================
