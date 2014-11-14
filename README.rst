@@ -14,7 +14,14 @@ This is my first python package! Good bye messy scripts::
 
 >>> import gencmd
 
+Example
+--------
+
+Generating a mixed stellar population (see ``examples/mixed.py``)
+
+.. image:: https://raw.githubusercontent.com/balbinot/gencmd/master/examples/fig_mixed1.png
+        
 Features
 --------
 
-* TODO
+* It is awesome
